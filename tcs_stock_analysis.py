@@ -44,6 +44,9 @@ df['Prev_Close'] = df['Close'].shift(1)
 df.dropna(inplace=True)
 
 # 🎯 Prepare Features and Target
+# ==============================
+# Linear Regression Model
+# ==============================
 X = df[['Open', 'High', 'Low', 'Volume', 'Prev_Close', 'Day_of_Week', 'Month']]
 y = df['Close']
 
@@ -71,7 +74,7 @@ plt.tight_layout()
 plt.show()
 
 # 💾 Save the model (optional)
-with open('TCS_Linear_Model.pkl', 'wb') as f:
+with open("models/TCS_Linear_Model.pkl",'wb') as f:
     pickle.dump(model, f)
 
 # ✅ Completion message
